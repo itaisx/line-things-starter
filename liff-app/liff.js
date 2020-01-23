@@ -137,6 +137,7 @@ function runApp() {
     liff.getProfile().then(profile => {      
       lineId = profile.userId;
       document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+      document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
       initializeLiff();
     }).catch(err => console.error(err));
   }
