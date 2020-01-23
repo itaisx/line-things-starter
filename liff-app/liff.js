@@ -130,7 +130,7 @@ function makeErrorMsg(errorObj) {
 // -------------- //
 
 function initializeApp() {
-    liff.init(() => initializeLiff(), error => uiStatusError(makeErrorMsg(error), false));
+    liff.init(() => runApp(), error => uiStatusError(makeErrorMsg(error), false));
     
 }
 function runApp() {
