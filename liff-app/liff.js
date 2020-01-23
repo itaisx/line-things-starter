@@ -11,6 +11,7 @@ const PSDI_CHARACTERISTIC_UUID  = '26e2b12b-85f0-4f3f-9fdd-91d114270e6e';
 // UI settings
 let ledState = false; // true: LED on, false: LED off
 let clickCount = 0;
+let lineId = null;
 
 // -------------- //
 // On window load //
@@ -130,11 +131,18 @@ function makeErrorMsg(errorObj) {
 
 function initializeApp() {
     liff.init(() => initializeLiff(), error => uiStatusError(makeErrorMsg(error), false));
+    
 }
-
-function initializeLiff() {
+function runApp() {
+    liff.getProfile().then(profile => {      
+      lineId = profile.userId;
+      document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+      initializeLiff();
+    }).catch(err => console.error(err));
+  }
+function initializeLiff() {    
     liff.initPlugins(['bluetooth']).then(() => {
-        liffCheckAvailablityAndDo(() => liffRequestDevice());
+        liffCheckAvailablityAndDo(() => liffRequestDevice());        
     }).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
