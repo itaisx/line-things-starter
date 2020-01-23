@@ -178,8 +178,7 @@ function liffConnectToDevice(device) {
         document.getElementById("device-id").innerText = device.id;
 
         // Show status connected
-        //uiToggleDeviceConnected(true);
-        
+        uiToggleDeviceConnected(true);
 
         // Get service
         device.gatt.getPrimaryService(USER_SERVICE_UUID).then(service => {
@@ -193,8 +192,6 @@ function liffConnectToDevice(device) {
             uiStatusError(makeErrorMsg(error), false);
         });
 
-        handlerToggleLed();
-        
         // Device disconnect callback
         const disconnectCallback = () => {
             // Show status disconnected
