@@ -73,7 +73,7 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
-    if (lineId == lineId) {
+    if (lineId == "Ue97a2167086f3e4325732d22d9825794") {
       // Hide loading animation
       uiToggleLoadingAnimation(false);
       // Show status connected
