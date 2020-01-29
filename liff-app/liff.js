@@ -188,7 +188,6 @@ function liffConnectToDevice(device) {
     .connect()
     .then(() => {
       document.getElementById("device-name").innerText = device.name;
-      document.getElementById("test-name").innerText = "Why~";
       var request = new XMLHttpRequest();
 
       request.open(
@@ -199,6 +198,8 @@ function liffConnectToDevice(device) {
       request.onload = function() {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
+
+        document.getElementById("test-name").innerText = "Why~";
         if (request.status >= 200 && request.status < 400) {
           if (data.residentialName == "บ้านฉันตลกไว้ก่อน") {
             document.getElementById("residential-name").innerText = "Hi";
