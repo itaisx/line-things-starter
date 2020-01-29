@@ -47,13 +47,6 @@ function uiToggleLedButton(state) {
   }
 }
 
-function uiCountPressButton() {
-  clickCount++;
-
-  const el = document.getElementById("click-count");
-  el.innerText = clickCount;
-}
-
 function uiToggleStateButton(pressed) {
   const el = document.getElementById("btn-state");
 
@@ -204,7 +197,6 @@ function liffConnectToDevice(device) {
     .connect()
     .then(() => {
       document.getElementById("device-name").innerText = device.name;
-      document.getElementById("device-id").innerText = device.id;
 
       // Show status connected
       uiToggleDeviceConnected(true);
@@ -293,7 +285,6 @@ function liffGetPSDIService(service) {
         (output, byte) => output + ("0" + byte.toString(16)).slice(-2),
         ""
       );
-      document.getElementById("device-psdi").innerText = psdi;
     })
     .catch(error => {
       uiStatusError(makeErrorMsg(error), false);
