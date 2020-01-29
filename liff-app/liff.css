@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 body, table {
   font-size: 14pt;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Kanit', sans-serif;
   margin: 0pt;
   text-align: center;
-  padding-top: 18pt;
+  padding-top: 0pt;
 }
 
 p {
@@ -20,8 +21,8 @@ p {
 
 .btn-led-toggle {
     box-shadow: 0 4pt 8pt 0 rgba(0,0,0,0.2), 0 3pt 10pt 0 rgba(0,0,0,0.19);
-    color: #f8f9fa; /* Light */
-    background-color: #6c757d; /* Gray */
+    color: white; /* Light */
+    background-color: #B3A29A; /* Gray */
     width: 160pt;
     font-weight: bold;
     height: 40pt;
