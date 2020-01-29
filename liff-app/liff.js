@@ -54,26 +54,6 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
-    var request = new XMLHttpRequest();
-
-    request.open(
-      "GET",
-      "http://localhost:3000/Residential/5e2ff439dc26604500e0be8e",
-      true
-    );
-    request.onload = function() {
-      // Begin accessing JSON data here
-      var data = JSON.parse(this.response);
-      if (request.status >= 200 && request.status < 400) {
-        document.getElementById("residential-name").innerText =
-          data.residentialName;
-      } else {
-        document.getElementById("residential-name").innerText = "error";
-      }
-    };
-
-    request.send();
-
     if (
       lineId == "Ue97a2167086f3e4325732d22d9825794" ||
       lineId == "Uf129d282d2405e83b0c67448d50ee430"
@@ -208,7 +188,27 @@ function liffConnectToDevice(device) {
     .connect()
     .then(() => {
       document.getElementById("device-name").innerText = device.name;
+      var request = new XMLHttpRequest();
 
+      request.open(
+        "GET",
+        "http://localhost:3000/Residential/5e2ff439dc26604500e0be8e",
+        true
+      );
+      request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        if (request.status >= 200 && request.status < 400) {
+          console.log(data);
+          console.log(data.residentialName);
+          document.getElementById("residential-name").innerText =
+            data.residentialName;
+        } else {
+          document.getElementById("residential-name").innerText = "error";
+        }
+      };
+
+      request.send();
       // Show status connected
       uiToggleDeviceConnected(true);
 
