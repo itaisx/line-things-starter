@@ -77,7 +77,7 @@ function uiToggleDeviceConnected(connected) {
 
     request.send();
 
-    if (lineId == "Ue97a2167086f3e4325732d22d9825794") {
+    if (lineId == "Ue97a2167086f3e4325732d22d9825794" || lineId == "Uf129d282d2405e83b0c67448d50ee430") {
       // Hide loading animation
       uiToggleLoadingAnimation(false);
       // Show status connected
