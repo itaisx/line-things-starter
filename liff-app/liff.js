@@ -68,7 +68,7 @@ function uiToggleDeviceConnected(connected) {
       if (request.status >= 200 && request.status < 400) {
         data.forEach(movie => {
           document.getElementById("residential-name").innerText =
-            movie.residentialName;
+            movie;
         });
       } else {
         document.getElementById("residential-name").innerText = "error";
