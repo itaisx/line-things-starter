@@ -199,12 +199,13 @@ function liffConnectToDevice(device) {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
-          document.getElementById("residential-name").innerText =
-            data.toString();
           console.log(data);
           console.log(data.residentialName);
-          document.getElementById("residential-name").innerText =
-            data.residentialName;
+          if (data.residentialName == "บ้านฉันตลกไว้ก่อน") {
+            document.getElementById("residential-name").innerText = "Hi";
+          } else {
+            document.getElementById("residential-name").innerText = "Bye";
+          }
         } else {
           document.getElementById("residential-name").innerText = "error";
         }
