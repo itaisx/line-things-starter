@@ -54,7 +54,6 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
-    document.getElementById("residential-name").innerText = "Hi";
     var request = new XMLHttpRequest();
 
     request.open(
