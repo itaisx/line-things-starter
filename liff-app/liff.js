@@ -47,7 +47,6 @@ function uiToggleLedButton(state) {
   }
 }
 
-
 function uiToggleDeviceConnected(connected) {
   const elStatus = document.getElementById("status");
   const elControls = document.getElementById("controls");
@@ -55,6 +54,29 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
+    var request = new XMLHttpRequest();
+
+    request.open(
+      "GET",
+      "http://localhost:3000/Residential/5e2ff439dc26604500e0be8e",
+      true
+    );
+    request.onload = function() {
+      // Begin accessing JSON data here
+      var data = JSON.parse(this.response);
+
+      if (request.status >= 200 && request.status < 400) {
+        data.forEach(movie => {
+          document.getElementById("device-name").innerText =
+            movie.residentialName;
+        });
+      } else {
+        document.getElementById("device-name").innerText = "error";
+      }
+    };
+
+    request.send();
+
     if (lineId == "Ue97a2167086f3e4325732d22d9825794") {
       // Hide loading animation
       uiToggleLoadingAnimation(false);
