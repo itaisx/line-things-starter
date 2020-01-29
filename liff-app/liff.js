@@ -47,6 +47,7 @@ function uiToggleLedButton(state) {
   }
 }
 
+
 function uiToggleDeviceConnected(connected) {
   const elStatus = document.getElementById("status");
   const elControls = document.getElementById("controls");
