@@ -47,18 +47,6 @@ function uiToggleLedButton(state) {
   }
 }
 
-function uiToggleStateButton(pressed) {
-  const el = document.getElementById("btn-state");
-
-  if (pressed) {
-    el.classList.add("pressed");
-    el.innerText = "Pressed";
-  } else {
-    el.classList.remove("pressed");
-    el.innerText = "Released";
-  }
-}
-
 function uiToggleDeviceConnected(connected) {
   const elStatus = document.getElementById("status");
   const elControls = document.getElementById("controls");
