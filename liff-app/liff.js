@@ -192,10 +192,9 @@ function liffConnectToDevice(device) {
 
       request.open(
         "GET",
-        "http://localhost:3000/Residential/5e2ff439dc26604500e0be8e",
+        "https://988fdd52.ngrok.io/Residential/5e2ff439dc26604500e0be8e",
         true
       );
-      
 
       document.getElementById("test-name").innerText = "Why2~";
       request.onload = function() {
