@@ -64,7 +64,7 @@ function uiToggleDeviceConnected(connected) {
     request.onload = function() {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
-
+      document.getElementById("residential-name").innerText = "Hi";
       if (request.status >= 200 && request.status < 400) {
         data.forEach(movie => {
           document.getElementById("residential-name").innerText =
