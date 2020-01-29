@@ -196,7 +196,7 @@ function liffConnectToDevice(device) {
         true
       );
 
-      document.getElementById("test-name").innerText = "Why2~";
+      document.getElementById("test-name").innerText = "Why3~";
       request.onload = function() {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
