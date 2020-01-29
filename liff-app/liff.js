@@ -65,7 +65,8 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        document.getElementById("residential-name").innerText = data.residentialName;
+        document.getElementById("residential-name").innerText =
+          data.residentialName;
       } else {
         document.getElementById("residential-name").innerText = "error";
       }
@@ -73,7 +74,10 @@ function uiToggleDeviceConnected(connected) {
 
     request.send();
 
-    if (lineId == "Ue97a2167086f3e4325732d22d9825794" || lineId == "Uf129d282d2405e83b0c67448d50ee430") {
+    if (
+      lineId == "Ue97a2167086f3e4325732d22d9825794" ||
+      lineId == "Uf129d282d2405e83b0c67448d50ee430"
+    ) {
       // Hide loading animation
       uiToggleLoadingAnimation(false);
       // Show status connected
