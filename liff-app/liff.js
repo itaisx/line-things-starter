@@ -67,11 +67,11 @@ function uiToggleDeviceConnected(connected) {
 
       if (request.status >= 200 && request.status < 400) {
         data.forEach(movie => {
-          document.getElementById("device-name").innerText =
+          document.getElementById("residential-name").innerText =
             movie.residentialName;
         });
       } else {
-        document.getElementById("device-name").innerText = "error";
+        document.getElementById("residential-name").innerText = "error";
       }
     };
 
