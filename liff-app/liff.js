@@ -55,19 +55,26 @@ function uiToggleDeviceConnected(connected) {
 
   if (connected) {
     var now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var today = new Date(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1
+    );
     var request = new XMLHttpRequest();
 
     request.open(
       "GET",
-      "https://2339ea80.ngrok.io/Reservation/" + lineId + "/" + today,
+      "https://2339ea80.ngrok.io/Reservation/" +
+        lineId +
+        "/" +
+        today.toISOString(),
       true
     );
     request.onload = function() {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data._id != undefined) {
+        if (data[0]._id != undefined) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
