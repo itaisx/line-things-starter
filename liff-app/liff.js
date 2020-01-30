@@ -54,28 +54,51 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
-    if (
-      lineId == "Ue97a2167086f3e4325732d22d9825794" ||
-      lineId == "Uf129d282d2405e83b0c67448d50ee430"
-    ) {
-      // Hide loading animation
-      uiToggleLoadingAnimation(false);
-      // Show status connected
-      elStatus.classList.remove("inactive");
-      elStatus.classList.add("success");
-      elStatus.innerText = "Device connected";
-      // Show controls
-      elControls.classList.remove("hidden");
-    } else {
-      // Show loading animation
-      uiToggleLoadingAnimation(false);
-      // Show status disconnected
-      elStatus.classList.remove("success");
-      elStatus.classList.add("inactive");
-      elStatus.innerText = "คุณไม่ได้จองไว้";
-      // Hide controls
-      elControls.classList.add("hidden");
-    }
+    var request = new XMLHttpRequest();
+
+    request.open(
+      "GET",
+      "https://346fddd5.ngrok.io/Reservation/" + lineId + "/" + Date.now(),
+      true
+    );
+    request.onload = function() {
+      // Begin accessing JSON data here
+      var data = JSON.parse(this.response);
+      if (request.status >= 200 && request.status < 400) {
+        if (data) {
+          // Hide loading animation
+          uiToggleLoadingAnimation(false);
+          // Show status connected
+          elStatus.classList.remove("inactive");
+          elStatus.classList.add("success");
+          elStatus.innerText = "Device connected";
+          // Show controls
+          elControls.classList.remove("hidden");
+          document.getElementById("residential-name").innerText =
+            data.residentialName;
+        } else {
+          // Show loading animation
+          uiToggleLoadingAnimation(false);
+          // Show status disconnected
+          elStatus.classList.remove("success");
+          elStatus.classList.add("inactive");
+          elStatus.innerText = "คุณไม่ได้จองไว้";
+          // Hide controls
+          elControls.classList.add("hidden");
+        }
+      } else {
+        // Show loading animation
+        uiToggleLoadingAnimation(true);
+        // Show status disconnected
+        elStatus.classList.remove("success");
+        elStatus.classList.add("inactive");
+        elStatus.innerText = "Connect Api Error";
+        // Hide controls
+        elControls.classList.add("hidden");
+      }
+    };
+
+    request.send();
   } else {
     // Show loading animation
     uiToggleLoadingAnimation(true);
@@ -188,25 +211,6 @@ function liffConnectToDevice(device) {
     .connect()
     .then(() => {
       document.getElementById("device-name").innerText = device.name;
-      var request = new XMLHttpRequest();
-
-      request.open(
-        "GET",
-        "https://473f4635.ngrok.io/Residential/5e2ff439dc26604500e0be8e",
-        true
-      );
-      request.onload = function() {
-        // Begin accessing JSON data here
-        var data = JSON.parse(this.response);
-        if (request.status >= 200 && request.status < 400) {
-          document.getElementById("residential-name").innerText =
-            data.residentialName;
-        } else {
-          document.getElementById("residential-name").innerText = "error";
-        }
-      };
-
-      request.send();
       // Show status connected
       uiToggleDeviceConnected(true);
 
