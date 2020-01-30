@@ -18,6 +18,37 @@ let lineId = null;
 // -------------- //
 
 window.onload = () => {
+  // var now = new Date();
+  // var today = new Date(
+  //   now.getUTCFullYear(),
+  //   now.getUTCMonth(),
+  //   now.getUTCDate() + 1
+  // );
+  // var request = new XMLHttpRequest();
+  // lineId = "Uf129d282d2405e83b0c67448d50ee430";
+  // request.open(
+  //   "GET",
+  //   "https://2339ea80.ngrok.io/Reservation/" +
+  //     lineId +
+  //     "/" +
+  //     today.toISOString(),
+  //   true
+  // );
+  // request.onload = function() {
+  //   // Begin accessing JSON data here
+  //   var data = JSON.parse(this.response);
+  //   if (request.status >= 200 && request.status < 400) {
+  //     console.log(data);
+  //     if (data.length >= 1) {
+  //       document.getElementById("test-name").innerText = "เย้";
+  //     } else {
+  //       document.getElementById("test-name").innerText = "ไม่ได้จอง";
+  //     }
+  //   } else {
+  //     document.getElementById("test-name").innerText = "หงึ";
+  //   }
+  // };
+  // request.send();
   initializeApp();
 };
 
@@ -74,7 +105,7 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data.length >= 1) {
+        if (data.length > 0) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
@@ -90,7 +121,7 @@ function uiToggleDeviceConnected(connected) {
           // Show status disconnected
           elStatus.classList.remove("success");
           elStatus.classList.add("inactive");
-          elStatus.innerText = "คุณไม่ได้จองไว้";
+          elStatus.innerText = "คุณไม่ได้จองไว้" + lineId + today.toISOString();
           // Hide controls
           elControls.classList.add("hidden");
         }
