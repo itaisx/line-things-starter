@@ -114,14 +114,13 @@ function uiToggleDeviceConnected(connected) {
           elStatus.innerText = "Device connected";
           // Show controls
           elControls.classList.remove("hidden");
-          document.getElementById("residential-name").innerText = "เย้";
         } else {
           // Show loading animation
           uiToggleLoadingAnimation(false);
           // Show status disconnected
           elStatus.classList.remove("success");
           elStatus.classList.add("inactive");
-          elStatus.innerText = "คุณไม่ได้จองไว้" + lineId + today.toISOString();
+          elStatus.innerText = "คุณไม่ได้จองไว้";
           // Hide controls
           elControls.classList.add("hidden");
         }
