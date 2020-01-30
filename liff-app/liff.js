@@ -96,16 +96,15 @@ function uiToggleDeviceConnected(connected) {
         }
       } else {
         // Show loading animation
-        uiToggleLoadingAnimation(true);
+        uiToggleLoadingAnimation(false);
         // Show status disconnected
         elStatus.classList.remove("success");
         elStatus.classList.add("inactive");
-        elStatus.innerText = "Connect Api Error";
+        elStatus.innerText = "Connect Api Fail";
         // Hide controls
         elControls.classList.add("hidden");
       }
     };
-
     request.send();
   } else {
     // Show loading animation
