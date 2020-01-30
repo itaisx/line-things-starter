@@ -201,11 +201,8 @@ function liffConnectToDevice(device) {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
         if (request.status >= 200 && request.status < 400) {
-          if (data.residentialName == "บ้านฉันตลกไว้ก่อน") {
-            document.getElementById("residential-name").innerText = "Hi";
-          } else {
-            document.getElementById("residential-name").innerText = "Bye";
-          }
+          document.getElementById("residential-name").innerText =
+            data.residentialName;
         } else {
           document.getElementById("residential-name").innerText = "error";
         }
