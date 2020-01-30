@@ -74,7 +74,7 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data[0]._id != undefined) {
+        if (data.length < 1) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
