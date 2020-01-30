@@ -195,10 +195,8 @@ function runApp() {
     .getProfile()
     .then(profile => {
       lineId = profile.userId;
-      document.getElementById("userId").innerHTML =
-        "<b>UserId:</b> " + profile.userId;
       document.getElementById("displayName").innerHTML =
-        "<b>DisplayName:</b> " + profile.displayName;
+        "<b>ยินดีต้อนรับคุณ</b> " + profile.displayName;
       initializeLiff();
     })
     .catch(err => console.error(err));
