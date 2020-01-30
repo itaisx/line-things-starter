@@ -192,7 +192,7 @@ function liffConnectToDevice(device) {
 
       request.open(
         "GET",
-        "https://988fdd52.ngrok.io/Residential/5e2ff439dc26604500e0be8e",
+        "https://473f4635.ngrok.io/Residential/5e2ff439dc26604500e0be8e",
         true
       );
 
