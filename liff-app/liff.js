@@ -65,7 +65,7 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data.residentialName != undefined) {
+        if (data._id != undefined) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
@@ -74,8 +74,7 @@ function uiToggleDeviceConnected(connected) {
           elStatus.innerText = "Device connected";
           // Show controls
           elControls.classList.remove("hidden");
-          document.getElementById("residential-name").innerText =
-            data.residentialName;
+          document.getElementById("residential-name").innerText = "เย้";
         } else {
           // Show loading animation
           uiToggleLoadingAnimation(false);
