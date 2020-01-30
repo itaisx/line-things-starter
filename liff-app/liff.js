@@ -80,7 +80,7 @@ function uiToggleDeviceConnected(connected) {
           // Show status connected
           elStatus.classList.remove("inactive");
           elStatus.classList.add("success");
-          elStatus.innerText = "Device connected";
+          elStatus.innerText = "สามารถเปิด/ปิดไฟได้แล้ว!";
           // Show controls
           elControls.classList.remove("hidden");
         } else {
