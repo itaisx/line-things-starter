@@ -54,11 +54,13 @@ function uiToggleDeviceConnected(connected) {
   elStatus.classList.remove("error");
 
   if (connected) {
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     var request = new XMLHttpRequest();
 
     request.open(
       "GET",
-      "https://346fddd5.ngrok.io/Reservation/" + lineId + "/" + Date.now(),
+      "https://2339ea80.ngrok.io/Reservation/" + lineId + "/" + today,
       true
     );
     request.onload = function() {
