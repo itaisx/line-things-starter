@@ -195,8 +195,6 @@ function liffConnectToDevice(device) {
         "https://473f4635.ngrok.io/Residential/5e2ff439dc26604500e0be8e",
         true
       );
-
-      document.getElementById("test-name").innerText = "Why3~";
       request.onload = function() {
         // Begin accessing JSON data here
         var data = JSON.parse(this.response);
