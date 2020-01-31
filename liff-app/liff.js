@@ -8,6 +8,8 @@ const BTN_CHARACTERISTIC_UUID = "62FBD229-6EDD-4D1A-B554-5C4E1BB29169";
 const PSDI_SERVICE_UUID = "e625601e-9e55-4597-a598-76018a0d293d"; // Device ID
 const PSDI_CHARACTERISTIC_UUID = "26e2b12b-85f0-4f3f-9fdd-91d114270e6e";
 
+const residentialId = "5e2ff439dc26604500e0be8e";
+
 // UI settings
 let ledState = false; // true: LED on, false: LED off
 let clickCount = 0;
@@ -71,7 +73,7 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data.length > 0) {
+        if (data.length > 0 && data[0].residentialId == residentialId) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
