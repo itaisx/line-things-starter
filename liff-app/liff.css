@@ -22,7 +22,7 @@ p {
 .btn-led-toggle {
     box-shadow: 0 4pt 8pt 0 rgba(0,0,0,0.2), 0 3pt 10pt 0 rgba(0,0,0,0.19);
     color: white; /* Light */
-    background-color: #B3A29A; /* Gray */
+    background-color: #74c4df; /* Gray */
     width: 160pt;
     font-weight: bold;
     height: 40pt;
@@ -33,7 +33,7 @@ p {
 .btn-led-toggle:active {
     transform: translateY(4pt);
     box-shadow: 0 2pt 4pt 0 rgba(0,0,0,0.2), 0 1pt 5pt 0 rgba(0,0,0,0.19);
-    background-color: #B3A29A; /* Gray */
+    background-color: #CFE4F4; /* Gray */
 }
 
 .led-on, .led-on:active {
@@ -46,19 +46,19 @@ p {
     margin-bottom: 8pt;
     width: 100pt;
     border: 1pt solid #6c757d; /* Gray */
-    color: #B3A29A; /* Gray */
+    color: #CFE4F4; /* Gray */
     background-color: #f8f9fa; /* Light */
 }
 
 .btn-state:active, .pressed {
-    color: #B3A29A; /* Dark */
+    color: #CFE4F4; /* Dark */
     border: 1pt solid #343a40; /* Dark */
     box-shadow: 0 2pt #666;
     transform: translateY(4pt);
 }
 
 .inactive {
-    color: #B3A29A; /* Gray */
+    color: #CFE4F4; /* Gray */
 }
 
 .success {

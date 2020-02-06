@@ -40,7 +40,7 @@ function handlerToggleLed() {
 
 function uiToggleLedButton(state) {
   const el = document.getElementById("btn-led-toggle");
-  el.innerText = state ? "Switch LED OFF" : "Switch LED ON";
+  el.innerText = state ? "ปิดประตู" : "เปิดประตู";
 
   if (state) {
     el.classList.add("led-on");
@@ -66,7 +66,7 @@ function uiToggleDeviceConnected(connected) {
 
     request.open(
       "GET",
-      "https://24c4a11b.ngrok.io/Reservation/getReservation/" + lineId,
+      "https://03103cef.ngrok.io/Reservation/getReservation/" + lineId,
       true
     );
     request.onload = function() {
@@ -79,7 +79,7 @@ function uiToggleDeviceConnected(connected) {
           // Show status connected
           elStatus.classList.remove("inactive");
           elStatus.classList.add("success");
-          elStatus.innerText = "สามารถเปิด/ปิดไฟได้แล้ว!";
+          elStatus.innerText = "สามารถเปิดประตูได้แล้ว!";
           // Show controls
           elControls.classList.remove("hidden");
         } else {
