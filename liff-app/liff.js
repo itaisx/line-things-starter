@@ -66,7 +66,7 @@ function uiToggleDeviceConnected(connected) {
 
     request.open(
       "GET",
-      "https://21b07e98.ngrok.io/Reservation/getReservation/" + lineId,
+      "https://988e2ee1.ngrok.io/Reservation/getReservation/" + lineId,
       true
     );
     request.onload = function() {
