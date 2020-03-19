@@ -73,7 +73,8 @@ function uiToggleDeviceConnected(connected) {
       // Begin accessing JSON data here
       var data = JSON.parse(this.response);
       if (request.status >= 200 && request.status < 400) {
-        if (data.length > 0 && data[0].residentialId == residentialId && data[0].status == 1) {
+        const found = data.find(element => element.residentialId == residentialId && element.status == 1);
+        if (found !== undefined) {
           // Hide loading animation
           uiToggleLoadingAnimation(false);
           // Show status connected
