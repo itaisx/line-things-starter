@@ -33,11 +33,11 @@ p {
 .btn-led-toggle:active {
     transform: translateY(4pt);
     box-shadow: 0 2pt 4pt 0 rgba(0,0,0,0.2), 0 1pt 5pt 0 rgba(0,0,0,0.19);
-    background-color: red; /* Gray */
+    background-color: gray; /* Gray */
 }
 
 .led-on, .led-on:active {
-    background-color: #16C464; /* LINE Green */
+    background-color: red; /* LINE Green */
 }
 
 .btn-state {
